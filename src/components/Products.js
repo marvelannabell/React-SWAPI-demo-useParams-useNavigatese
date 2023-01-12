@@ -17,8 +17,10 @@ export const Products = () => {
 
     const nextProductHandler = (e) => {
         // TODO: redirect to next prodict
-        navigate(`/products/${Number(productId) + 1}`)//parse to number, because from URL we have string
-    }
+        navigate(`/products/${Number(productId) + 1}`,{replace:false})//parse to number, because from URL we have string
+    };
+
+  
     return (
         <>
             <h2>Products Page</h2>
