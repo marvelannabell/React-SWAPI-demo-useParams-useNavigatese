@@ -1,14 +1,55 @@
-import { Link } from "react-router-dom"
-export const Navigation=()=>{
-    return(
+import { Link, NavLink } from "react-router-dom"
+import styles from './Navigation.module.css'
+export const Navigation = () => {
+
+    const setStyles = ({ isActive }) => {
+        return isActive ? styles['active-link']
+            : undefined;
+    }
+    return (
         <nav>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/pricing">Pricing</Link></li>
-                <li><Link to="/contacts">Contacts</Link></li>
-                <li><Link to="/products/2">Products</Link></li>
-                <li><Link to="/millenium-falcon">Millenium Falcon</Link></li>
+                <li><NavLink to="/"  className={setStyles}>Home</NavLink></li>
+                <li><NavLink to="/about"  className={setStyles}>About</NavLink></li>
+                <li><NavLink
+                    to="/pricing"
+                    className={setStyles}
+                    // style={({ isActive }) => ({
+                    //     background: isActive ? 'lightblue' : 'lightgrey'
+                    // })}
+                >
+                    Pricing
+                </NavLink>
+                </li>
+                <li><NavLink
+                    to="/contacts"
+                    className={setStyles}
+                    // style={(navLinkProps => {
+                    //     return navLinkProps.isActive
+                    //         ? { backgroundColor: 'lightblue' } : undefined
+                    // })}
+                >
+                    Contacts
+                </NavLink>
+                </li>
+
+                <li>
+                    <NavLink
+                        to="/products/2"
+                        // style={{ backgroundColor: 'red' }}
+                        className={setStyles}
+                    >
+                        Products
+                    </NavLink>
+                </li>
+
+                <li><NavLink
+                    to="/millenium-falcon"
+                    className={setStyles}
+                >
+                    Millenium Falcon
+                </NavLink>
+                </li>
 
             </ul>
         </nav>
