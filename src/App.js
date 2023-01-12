@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from './components/Home'
 import { Pricing } from './components/Pricing';
 import { About } from './components/About';
@@ -21,10 +21,10 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/pricing' element={<Pricing></Pricing>} />
         <Route path='/contacts' element={<Contacts></Contacts>} />
-
         <Route path='/products/:productId' element={<Products></Products>} />
-
         <Route path='*' element={<NotFound />} />
+        {/* //need replace here */}
+        <Route path='millenium-falcon' element={<Navigate to='/products/10' replace/>}></Route>
 
       </Routes>
     </div>
@@ -32,3 +32,5 @@ function App() {
 }
 
 export default App;
+
+
